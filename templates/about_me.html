@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>About Me</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <h1>Android: NetRunner Fan Page</h1>
+          <div class="btn-group" role="group" aria-label="Left Align">
+            <button type="button" class="btn btn-default"><a href="{% url 'index_view' %}">Home</a></button>
+          </div>
+
+        <div class="btn-group" role="group" aria-label="Left Align">
+          {% for row in all_factions %}
+              <button type="button" class="btn btn-default"><a href="/faction/{{ row.id }}">{{ row }}</a></button>
+          {% endfor %}
+        </div>
+        <div class="btn-group" role="group" aria-label="Left Align">
+          <button type="button" class="btn btn-default"><a href="{% url 'about_me_view' %}">About Me</a></button>
+        </div>
+    <h3>Biography of the Author</h3>
+    <p>
+      Tommy Huynh is professional recluse living with a boyfriend and two cats.
+      He is a New York Times Best Selling Author of 0 books. He is also know for
+      being <a href="https://en.wikipedia.org/wiki/You_(Time_Person_of_the_Year)">Time Magazine's 2006 Person of the Year</a>.
+      He enjoys board and video games, music, and binge watching television which is
+      why he consider's himself a outdoorsy.
+    </p>
+    <p>
+      Tommy and his family moved over to the U.S. from Vietnam when he was just a few weeks old.
+      He grew up and lived in Spartanburg, South Carolina. In 2011, he moved to Columbia to
+      attend the University of South Carolina. In 2016, he moved back to the Upstate
+      to attend The Iron Yard in Greenville, SC. He has been enjoying his time learning
+      to code with a fantastic instructor.
+    </p>
+  </div>
+  </body>
+</html>
