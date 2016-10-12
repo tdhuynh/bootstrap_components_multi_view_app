@@ -1,27 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>A:NR Fan Page</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+{% extends 'base.html' %}
+{% load staticfiles %}
 
-  </head>
-  <body>
-    <div class="container">
-        <h1>Android: NetRunner Fan Page</h1>
-          <div class="btn-group" role="group" aria-label="Left Align">
-            <button type="button" class="btn btn-default"><a href="{% url 'index_view' %}">Home</a></button>
-          </div>
-
-        <div class="btn-group" role="group" aria-label="Left Align">
-          {% for row in all_factions %}
-              <button type="button" class="btn btn-default"><a href="{% url 'faction_view' row.id %}">{{ row }}</a></button>
-          {% endfor %}
-        </div>
-        <div class="btn-group" role="group" aria-label="Left Align">
-          <button type="button" class="btn btn-default"><a href="{% url 'about_me_view' %}">About Me</a></button>
-        </div>
-
+{% block content %}
       <h3>What is it?</h3>
       <p>
         Android: NetRunner is a Living Card Game set in a dystopian cyber-noir future.
@@ -31,16 +11,25 @@
         player to 7 agenda points wins. The Corp can also win by flatlining the Runner through meat damage,
         net damage, or brain damage.
       </p>
-      <h3>Runner and Corp Factions</h3>
-      <p>
-        The game pits Runner versus Corp. There are 3 Runner factions (Anarchs, Criminals, Shapers) and
-        4 Corp factions (Haas-Bioroid, Jinteki, NBN, Weyland Consortium). In addition to the two sides, each faction
-        within that side has their own unique play style. You can read more about the factions above.
-      </p>
       <h3>Rules</h3>
         <p>
           You can read the rules for the game <a href="https://images-cdn.fantasyflightgames.com/ffg_content/android-netrunner/support/android-netrunner-core-rules.pdf">here</a>!
         </p>
+      <h3>Runner and Corp Factions</h3>
+      <p>
+        The game pits Runner versus Corp. There are 3 Runner factions (Anarchs, Criminals, Shapers) and
+        4 Corp factions (Haas-Bioroid, Jinteki, NBN, Weyland Consortium). In addition to the two sides, each faction
+        within that side has their own unique play style. You can read more about the factions above. Below are the 7 Identities
+        of each faction from the Core Set.
+      </p>
+      <div>
+          <img src="{% static 'images/anarch.png' %}" class="img-responsive left" alt="Responsive image">
+          <img src="{% static 'images/criminal.png' %}" class="img-responsive left" alt="Responsive image">
+          <img src="{% static 'images/shaper.png' %}" class="img-responsive left" alt="Responsive image">
+          <img src="{% static 'images/hb.png' %}" class="img-responsive left" alt="Responsive image">
+          <img src="{% static 'images/jinteki.png' %}" class="img-responsive left" alt="Responsive image">
+          <img src="{% static 'images/nbn.png' %}" class="img-responsive left" alt="Responsive image">
+          <img src="{% static 'images/weyland.png' %}" class="img-responsive left" alt="Responsive image">
       </div>
-  </body>
-</html>
+
+{% endblock %}

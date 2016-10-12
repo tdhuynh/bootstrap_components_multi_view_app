@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A:NR Fan Page</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="screen" title="no title">
+    <style>
+
+        .left {
+            float: left;
+            width: 150px;
+        }
+        body {
+            text-align: center;
+            background-image: "static('images/theroot.jpg')"
+
+        }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+        <h1>Android: NetRunner Fan Page</h1>
+          <div class="btn-group" role="group" aria-label="Left Align">
+            <button type="button" class="btn btn-default"><a href="{% url 'index_view' %}">Home</a></button>
+          </div>
+
+        <div class="btn-group" role="group" aria-label="Left Align">
+          {% for row in all_factions %}
+              <button type="button" class="btn btn-default"><a href="{% url 'faction_view' row.id %}">{{ row }}</a></button>
+          {% endfor %}
+        </div>
+        <div class="btn-group" role="group" aria-label="Left Align">
+          <button type="button" class="btn btn-default"><a href="{% url 'about_me_view' %}">About Me</a></button>
+        </div>
+
+    {% block content %}
+    {% endblock %}
+
+    </body>
+</html>
